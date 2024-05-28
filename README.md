@@ -1,4 +1,4 @@
-# AWESOME!
+# AWESOME
 Official code repository for "Implicit Representations for Constrained Image Segmentation" published at ICML 2024.
 
 > AWESOME is a totally serious abbevaration for:  
