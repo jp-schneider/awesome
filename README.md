@@ -6,4 +6,4 @@ Official code repository for "Implicit Representations for Constrained Image Seg
 
 Soon you will find all our code as well as hints and tips for integration into normal Deep Learning pipelines...
 
-Stay tuned and feel free to [contact me](mailto://jan.schneider@uni-siegen.de?subject=AWESOME%20project")!
+Stay tuned and feel free to [contact me](mailto://jan.schneider@uni-siegen.de?subject=AWESOME%20project)!
