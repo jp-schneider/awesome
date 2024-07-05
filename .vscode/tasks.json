@@ -1,0 +1,90 @@
+{
+    // See https://go.microsoft.com/fwlink/?LinkId=733558
+    // for the documentation about the tasks.json format
+    "version": "2.0.0",
+    "tasks": [
+
+        {
+            "label": "Launch Tensorboard",
+            "type": "shell",
+            "command": "${command:python.interpreterPath}",
+            "args": [
+                "-m",
+                "tensorboard.main",
+                "--logdir",
+                "${input:tensorboardLogDir}"
+            ],
+            "presentation": {
+                "echo": true,
+                "reveal": "always",
+                "focus": false,
+                "panel": "shared",
+                "showReuseMessage": true,
+                "clear": true
+            },
+            "problemMatcher": []
+        },
+        {
+            "label": "Python: Run.py",
+            "type": "shell",
+            "command": "${command:python.interpreterPath}",
+            "args": [
+                "${workspaceFolder}/scripts/run.py",
+                "--config-path",
+                "${input:pick_configFile}"
+            ],
+            "presentation": {
+                "echo": true,
+                "reveal": "always",
+                "focus": false,
+                "panel": "shared",
+                "showReuseMessage": false,
+                "clear": true
+            },
+            "problemMatcher": []
+        },
+
+    ],
+    "inputs": [
+        {
+            "id": "tensorboardLogDir",
+            "type": "pickString",
+            // type specific configuration attributes
+            "options": [
+                "./runs",
+            ],
+            "default": "./runs",
+            "description": "Pick the log directory for tensorboard."
+        },
+        {
+            "id": "pick_configFile",
+            "type": "command",
+            // type specific configuration attributes
+            "command": "shellCommand.execute",
+            "args": {
+                "command": "dir /A-D /S /B",
+                "cwd": "${workspaceFolder}/config"
+            }
+        },
+        {
+            "id": "pick_configFile",
+            "type": "command",
+            // type specific configuration attributes
+            "command": "shellCommand.execute",
+            "args": {
+                "command": "dir /A-D /S /B",
+                "cwd": "${workspaceFolder}/config"
+            }
+          },
+          {
+            "id": "pick_configFile_linux",
+            "type": "command",
+            // type specific configuration attributes
+            "command": "shellCommand.execute",
+            "args": {
+              "command": "find ./config -type f",
+              "cwd": "${workspaceFolder}"
+            }
+          }
+    ]
+}

@@ -1,0 +1,206 @@
+AwesomeConfig:
+  __class__: awesome.run.awesome_config.AwesomeConfig
+  agent_args:
+    do_pretraining: true
+    force_pretrain: false
+    pretrain_args:
+      do_pretrain_checkpoints: true
+      lr: 0.001
+      num_epochs: 4000
+      prefit_convex_net: true
+      prefit_convex_net_lr: 0.001
+      prefit_convex_net_num_epochs: 200
+      prefit_convex_net_weight_decay: 0
+      prefit_flow_net_identity: true
+      prefit_flow_net_identity_lr: 0.01
+      prefit_flow_net_identity_num_epochs: 100
+      prefit_flow_net_identity_weight_decay: 1.0e-05
+      pretrain_checkpoint_dir: ./data/checkpoints/pretrain_states/2024-01-11/model_marple5_unet_spatial_realnvp_4000_400_seed47
+      proper_prior_fit_retrys: 1
+      reuse_state_epochs: 400
+      use_logger: true
+      use_pretrain_checkpoints: true
+      use_step_logger: true
+      zoo:
+        __class__: awesome.model.zoo.Zoo
+        zoo_folder: ./data/zoo
+    pretrain_only: false
+    pretrain_state_path: ./data/checkpoints/pretrain_states/2024-01-11/model_marple5_unet_spatial_realnvp_4000_400_seed47.pth
+  combined_segmentation_module_args: {}
+  combined_segmentation_module_type: awesome.model.wrapper_module.WrapperModule
+  compute_crf_after_pretraining: false
+  compute_crf_after_training: false
+  compute_crf_with_metrics: false
+  compute_metrics_during_training_nth_epoch: 5
+  dataset_args:
+    batch_size: 1
+    dataset:
+      __class__: awesome.dataset.fbms_sequence_dataset.FBMSSequenceDataset
+      __weak_label_ground_truth_mappings__: null
+      _annotations: null
+      _trajectories: null
+      all_frames: true
+      compressed_dataset: true
+      confidence_dir: weak_labels/labels_with_uncertainty_flownet2_based/
+      dataset_path: data/datasets/FBMS-59/train/marple5
+      do_uncertainty_label_flip: true
+      do_weak_label_preprocessing: true
+      dtype:
+        __class__: awesome.serialization.rules.torch.json_torch_dtype_serialization_rule.TorchDtypeValueWrapper
+        value: torch.float32
+      indices_file: null
+      label_mode:
+        __class__: awesome.dataset.label_mode.LabelMode
+        value: single_object
+      processed_weak_labels_dir: weak_labels/labels_with_uncertainty_flownet2_based/processed
+      remove_cache: false
+      returns_index: false
+      segmentation_object_id: 0
+      segmentation_object_mapping_file: data/fbms_segmentation_object_mapping.json
+      shuffle_in_training_dataloader: true
+      shuffle_in_validation_dataloader: true
+      split_ratio: 1
+      split_seed: 946817
+      test_weak_label_integrity: true
+      training_batch_size: 32
+      training_indices: null
+      trajectories_dir: tracks/multicut
+      trajectories_file: null
+      use_memory_cache: false
+      validation_batch_size: 32
+      validation_indices: null
+      weak_labels_dir: weak_labels/labels_with_uncertainty_flownet2_based
+    dimension: 3d
+    do_image_blurring: true
+    feature_dir: ./data/datasets/FBMS-59/train/marple5/Feat
+    image_channel_format: bgr
+    mode: model_input
+    model_input_requires_grad: false
+    shuffle_in_dataloader: false
+    split_ratio: 1
+    xytype: edge
+  dataset_type: awesome.dataset.awesome_dataset.AwesomeDataset
+  device: cuda
+  diff_config: null
+  dtype: torch.float32
+  extra_penalty_after_n_epochs: 200
+  include_unaries_when_saving: true
+  loss_args:
+    alpha: 1
+    beta: 1
+    criterion:
+      __class__: awesome.measures.weighted_loss.WeightedLoss
+      criterion:
+        __class__: torch.nn.modules.loss.BCELoss
+        _backward_hooks: {}
+        _backward_pre_hooks: {}
+        _buffers:
+          weight: null
+        _forward_hooks: {}
+        _forward_hooks_always_called: {}
+        _forward_hooks_with_kwargs: {}
+        _forward_pre_hooks: {}
+        _forward_pre_hooks_with_kwargs: {}
+        _is_full_backward_hook: null
+        _load_state_dict_post_hooks: {}
+        _load_state_dict_pre_hooks: {}
+        _modules: {}
+        _non_persistent_buffers_set:
+          __class__: awesome.serialization.rules.json_set_serialization_rule.SetValueWrapper
+          values: []
+        _parameters: {}
+        _state_dict_hooks: {}
+        _state_dict_pre_hooks: {}
+        reduction: none
+        training: true
+      forward_kwargs_criterion: false
+      mode: sssdms
+      name: null
+      noneclass: 2
+      reduction: mean
+      reduction_dim: null
+    penalty_criterion:
+      __class__: awesome.measures.se.SE
+      name: null
+      reduction: mean
+      reduction_dim: null
+  loss_type: awesome.measures.fbms_joint_loss.FBMSJointLoss
+  lr_on_plateau_scheduler_args:
+    cooldown: 100
+    eps: 1.0e-08
+    factor: 0.1
+    min_lr: 0
+    mode: min
+    patience: 100
+    threshold: 0.0001
+    threshold_mode: rel
+    verbose: true
+  lr_stop_training_watchdog_args:
+    learning_rate: 1.0e-07
+    mode: lte
+    verbose: true
+  mask_rcnn_finetune_box_mask_only: false
+  name_experiment: UNET+marple5+edge+diffeo+original+joint+seed47
+  num_epochs: 15
+  optimizer_args:
+    amsgrad: false
+    betas:
+      __class__: awesome.serialization.rules.json_tuple_serialization_rule.TupleValueWrapper
+      value:
+      - 0.9
+      - 0.999
+    eps: 1.0e-08
+    lr: 0.0001
+  optimizer_type: torch.optim.adam.Adam
+  output_folder: null
+  plot_final_indices: -1
+  plot_indices_during_training:
+  - 0
+  - 9
+  - 19
+  - 29
+  - 39
+  - 49
+  - 93
+  plot_indices_during_training_nth_epoch: 5
+  prior_model_args:
+    channels: 2
+    convex_net_hidden_layers: 2
+    convex_net_hidden_units: 130
+    flow_n_flows: 12
+    flow_output_fn: tanh
+    hidden_units: 32
+    norm: minmax
+  prior_model_type: awesome.model.net_factory.real_nvp_path_connected_net
+  reduce_lr_in_extra_penalty_hook_factor: 0.05
+  run_script_path: null
+  runs_path: ./runs/fbms_local/unet/
+  save_images_after_pretraining: true
+  scribble_percentage: 0.8
+  seed: 47
+  segmentation_model_args:
+    in_chn: 4
+  segmentation_model_gets_targets: false
+  segmentation_model_state_dict_path: ./data/checkpoints/labels_with_uncertainty_flownet2_based/model_marple5_unet.pth
+  segmentation_model_type: awesome.model.unet.UNet
+  segmentation_training_mode: multi
+  semantic_soft_segmentation_code_dir: ./third_party/soft_semantic_segmentation
+  semantic_soft_segmentation_model_checkpoint_dir: ./data/checkpoints/soft_semantic_segmentation/model
+  split_params_in_param_groups: false
+  step_lr_scheduler_args:
+    gamma: 0.1
+    step_size: 100
+    verbose: true
+  tf_use_gpu: false
+  use_binary_classification: true
+  use_extra_penalty_hook: false
+  use_lr_on_plateau_scheduler: false
+  use_lr_stop_training_watchdog: true
+  use_prior_model: true
+  use_progress_bar: false
+  use_reduce_lr_in_extra_penalty_hook: false
+  use_segmentation_output_inversion: true
+  use_step_lr_scheduler: false
+  used_runner_type: null
+  validation_each_nth_epoch: 100
+  weight_decay_on_weight_norm_modules: 0

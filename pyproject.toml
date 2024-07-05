@@ -1,0 +1,60 @@
+[tool.poetry]
+name = "awesome"
+version = "0.1.0"
+description = "A Project for: Anyone Working on Estimating Segmentations of Objects by Minimizing input-convex Energies (AWESOME)"
+authors = [
+    "Jan Philipp Schneider <jp-schneider@users.noreply.github.com>",
+    "Mishal Fatima",
+    "Jovita Lukasik",
+    "Andreas Kolb",
+    "Margret Keuper",
+"Michael Moeller",
+]
+readme = "README.md"
+
+[tool.poetry.dependencies]
+python = ">3.9,<3.12"
+numpy = "^1.25.2"
+pandas = "^2.1.0"
+scikit-learn = "^1.3.0"
+tqdm = "^4.66.1"
+jsonpickle = "^3.0.2"
+matplotlib = "^3.7.2"
+simple-parsing = "^0.1.4"
+typing-inspect = "^0.9.0"
+tensorboard = ">2.0"
+colorspacious = "^1.1.2"
+opencv-python = "^4.8.0.76"
+xmltodict = "^0.13.0"
+dill = "^0.3.7"
+pydensecrf = {version = "1.0rc2", optional = true}
+normflows = "^1.7.3"
+h5py = "^3.10.0"
+toml = "^0.10.1"
+torch = {version = "2.2.2+cu118", source = "cuda118"}
+torchvision = {version = "0.17.2+cu118", source = "cuda118"}
+torchaudio = {version = "2.2.2+cu118", source = "cuda118"}
+
+[tool.poetry.group.dev.dependencies]
+ipywidgets = "^8.1.0"
+ipython = "^8.15.0"
+ipympl = "^0.9.3"
+jupyter = "^1.0.0"
+autopep8 = "^2.0.3"
+tabulate = "^0.9.0"
+colour = "^0.1.5"
+trame = "^3.5.1"
+segment-anything = {git = "https://github.com/facebookresearch/segment-anything.git"}
+pre-commit = "^3.7.1"
+
+[tool.poetry.extras]
+crf = ["pydensecrf"]
+
+[[tool.poetry.source]]
+name = "cuda118"
+url = "https://download.pytorch.org/whl/cu118"
+priority = "explicit"
+
+[build-system]
+requires = ["poetry-core"]
+build-backend = "poetry.core.masonry.api"

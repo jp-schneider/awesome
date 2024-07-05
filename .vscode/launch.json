@@ -1,0 +1,75 @@
+{
+  // Use IntelliSense to learn about possible attributes.
+  // Hover to view descriptions of existing attributes.
+  // For more information, visit: https://go.microsoft.com/fwlink/?linkid=830387
+  "version": "0.2.0",
+  "configurations": [
+    {
+      "name": "Python: Run Config",
+      "type": "debugpy",
+      "request": "launch",
+      "program": "${workspaceFolder}/scripts/run.py",
+      "console": "integratedTerminal",
+      "args": [
+        "--config-path",
+        "${input:pick_configFile}",
+      ],
+      "justMyCode": false,
+      "env": {
+        "CUDA_LAUNCH_BLOCKING": "1"
+      }
+    },
+    {
+      "name": "Python: Run Config Linux",
+      "type": "debugpy",
+      "request": "launch",
+      "program": "${workspaceFolder}/scripts/run.py",
+      "console": "integratedTerminal",
+      "args": [
+        "--config-path",
+        "${input:pick_configFile_linux}",
+      ],
+      "justMyCode": false
+    },
+    {
+      "name": "Setup",
+      "type": "debugpy",
+      "request": "launch",
+      "program": "${workspaceFolder}/scripts/setup.py",
+      "args": [
+      ],
+    }
+  ],
+  "inputs": [
+    {
+      "id": "pick_configFile",
+      "type": "command",
+      // type specific configuration attributes
+      "command": "shellCommand.execute",
+      "args": {
+        "command": "dir /A-D /S /B",
+        "cwd": "${workspaceFolder}/config"
+      }
+    },
+    {
+      "id": "pick_configFile_linux",
+      "type": "command",
+      // type specific configuration attributes
+      "command": "shellCommand.execute",
+      "args": {
+        "command": "find ./config -type f",
+        "cwd": "${workspaceFolder}"
+      }
+    },
+    {
+      "id": "pickjoblist_linux",
+      "type": "command",
+      // type specific configuration attributes
+      "command": "shellCommand.execute",
+      "args": {
+        "command": "find ./scripts/slurm/job_files -type f -name \"*.py\"",
+        "cwd": "${workspaceFolder}"
+      }
+    },
+  ]
+}

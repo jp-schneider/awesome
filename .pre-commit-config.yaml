@@ -1,0 +1,60 @@
+repos:
+  - repo: https://github.com/hhatto/autopep8
+    rev: v2.1.0
+    hooks:
+      - id: autopep8
+  - repo: https://github.com/python-poetry/poetry
+    rev: "1.8.2"
+    hooks:
+      - id: poetry-check
+      - id: poetry-lock
+      - id: poetry-export
+        args: [-f, requirements.txt, -o, requirements.txt]
+      - id: poetry-export
+        args:
+          [
+            -f,
+            requirements.txt,
+            --all-extras,
+            --with,
+            dev,
+            -o,
+            requirements.dev.txt,
+          ]
+      - id: poetry-install
+  - repo: local
+    hooks:
+      - id: clean-ipynb
+        name: clean-ipynb
+        description: Clean Output of Jupyter Notebooks
+        files: (.*/)*.*.ipynb$
+        stages: [commit]
+        language: system
+        verbose: true
+        entry: bash scripts/hooks/jupyter_nb_clear_output.sh
+      - id: alter-requirements
+        name: alter-requirements
+        description: Copy requirements.txt and removes information which might not be readable by pip or conda.
+        files: requirements.txt
+        stages: [commit]
+        language: python
+        language_version: python3
+        args: [-p, -v, --output=requirements.slim.txt, -f]
+        entry: python scripts/util/alter_requirements.py
+
+      - id: alter-requirements-dev
+        name: alter-requirements-dev
+        description: Copy requirements.dev.txt and removes information which might not be readable by pip or conda.
+        files: requirements.dev.txt
+        stages: [commit]
+        language: python
+        language_version: python3
+        entry: python scripts/util/alter_requirements.py
+        args: [-p, -v, --output=requirements.dev.slim.txt, -f]
+
+  - repo: https://github.com/pre-commit/pre-commit-hooks
+    rev: v4.6.0
+    hooks:
+      - id: trailing-whitespace
+      - id: end-of-file-fixer
+      - id: mixed-line-ending

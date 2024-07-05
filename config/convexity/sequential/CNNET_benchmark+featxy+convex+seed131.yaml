@@ -1,0 +1,108 @@
+AwesomeConfig:
+  __class__: awesome.run.awesome_config.AwesomeConfig
+  dataset_args:
+    batch_size: 1
+    bs: null
+    dataset:
+      __class__: awesome.dataset.sisbosi_dataset.ConvexityDataset
+      dataset_len: 51
+      gt_dir: ./data/datasets/convexity_dataset/ground_truth
+      img_dir: ./data/datasets/convexity_dataset/img
+      mask_dir: ./data/datasets/convexity_dataset/user_scribbles
+      patch_size: 300
+      semantic: false
+      transform: false
+    dimension: 3d
+    feature_dir: ./data/datasets/convexity_dataset/Feat
+    mode: model_input
+    model_input_requires_grad: true
+    shuffle_in_dataloader: false
+    split_ratio: 1
+    xytransform: xy
+    xytype: featxy
+  dataset_type: awesome.dataset.sisbosi_dataset.SISBOSIDataset
+  device: cuda
+  diff_config: null
+  dtype: torch.float32
+  loss_args:
+    criterion:
+      __class__: awesome.measures.gradient_penalty_loss.GradientPenaltyLoss
+      apply_gradient_penalty: true
+      criterion:
+        __class__: torch.nn.modules.loss.BCELoss
+        _backward_hooks: {}
+        _backward_pre_hooks: {}
+        _buffers:
+          weight: null
+        _forward_hooks: {}
+        _forward_hooks_with_kwargs: {}
+        _forward_pre_hooks: {}
+        _forward_pre_hooks_with_kwargs: {}
+        _is_full_backward_hook: null
+        _load_state_dict_post_hooks: {}
+        _load_state_dict_pre_hooks: {}
+        _modules: {}
+        _non_persistent_buffers_set:
+          __class__: awesome.serialization.rules.json_set_serialization_rule.SetValueWrapper
+          values: []
+        _parameters: {}
+        _state_dict_hooks: {}
+        _state_dict_pre_hooks: {}
+        reduction: mean
+        training: true
+      featgrad: 0.0
+      name: null
+      noneclass: 2.0
+      rgbgrad: 0.01
+      xygrad: 0.01
+      xytype: featxy
+  loss_type: awesome.measures.awesome_image_loss.AwesomeImageLoss
+  lr_on_plateau_scheduler_args:
+    cooldown: 0
+    eps: 1.0e-08
+    factor: 0.1
+    min_lr: 0
+    mode: min
+    patience: 10
+    threshold: 0.0001
+    threshold_mode: rel
+    verbose: true
+  lr_stop_training_watchdog_args:
+    learning_rate: 1.0e-07
+    mode: lte
+    verbose: true
+  name_experiment: CNNET_benchmark+featxy+convex+seed131
+  num_epochs: 3000
+  optimizer_args:
+    amsgrad: false
+    betas:
+      __class__: awesome.serialization.rules.json_tuple_serialization_rule.TupleValueWrapper
+      value:
+      - 0.9
+      - 0.999
+    eps: 1.0e-08
+    lr: 0.02
+    weight_decay: 0
+  optimizer_type: torch.optim.adam.Adam
+  plot_indices_during_training: null
+  prior_model_args: {}
+  prior_model_type: awesome.model.convex_net.ConvexNet
+  run_script_path: null
+  runs_path: ./runs
+  scribble_percentage: 0.8
+  seed: 131
+  segmentation_model_args:
+    depth: 2
+    input: rgbxy
+    kernel_size: 3
+    width: 16
+  segmentation_model_type: awesome.model.cnn_net.CNNNet
+  segmentation_training_mode: single
+  use_binary_classification: true
+  use_extra_penalty_hook: true
+  use_lr_on_plateau_scheduler: false
+  use_lr_stop_training_watchdog: true
+  use_prior_model: true
+  use_progress_bar: false
+  use_reduce_lr_in_extra_penalty_hook: false
+  used_runner_type: null
