@@ -18,7 +18,7 @@ accepted at ICML 2024,
 </p>
 
 <div class="teaser">
-    <img src="./images/teaser_combined.png" height="400px" width="1024px">
+    <img src="./images/teaser_combined.png" max_height="400px" max_width="1024px">
 </div>
 
 
