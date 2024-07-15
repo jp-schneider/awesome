@@ -48,25 +48,25 @@ accepted in the UniReps Workshop at NeurIPS 2023.
 
 ### TL;DR
 
-In this repository, we show how to use *Implicit Representations* in combination with a prior known object shape to enhance segmentation quality. Is the object, either convex, star-shaped, path-connected, periodic or symmetric in space or time, we show, how to use this information to regularize any segmentation model or variational approach. One can use our method either as a post-processing step or as a constraint during training.
+In this repository we show how to use shape constraints with *Implicit Representations* to enhance segmentation quality. Is the object, either convex, star-shaped, path-connected, periodic or symmetric in space or time, we show, how this information can be used to regularize any segmentation model or variational approach. One can use our method either as a post-processing step or as a constraint during training.
 
-This can especially be useful if one does not have much data at hand, the data is noisy, or existing segmentation models are not accurate enough.
+This can especially be useful if one has not much data at hand, the data is noisy, or existing segmentation models are not accurate or robust.
 
 ### Getting Started
 
 To get started, please follow the [Getting Started guide](docs/getting_started.md) to set up the environment.
 
-If you curious how the priors work, we have created short "how-to" notebooks for two of the priors:
+If you courious how the priors work, we have created short "how-to" notebooks for two of the priors:
 - [Convexity](notebooks/how_to/convexity.ipynb)
 - [Path-Connectedness](notebooks/how_to/path-connectedness.ipynb)
 
-### Reproducibility
+### Reproducability
 
 Once the environment is set up, we explain in the [reproduction guide](docs/reproduction_guide.md) how to reproduce the results of the paper.
 
 # Execution of the code
 
-The training and evaluation of models can be achieved using separate configurations and the `run.py` script within the scripts folder.
+The training and evaluation of models can be archieved using seperate configurations and the `run.py` script within the scripts folder.
 
 ```bash
 
@@ -89,7 +89,7 @@ If you use this code in your research, please cite our paper:
 ```
 
 
-If you have any doubts or want to chat about the project, please [contact me](mailto://jan.schneider@uni-siegen.de?subject=AWESOME%20project)!
+If you have any doubts or just want to chat about the project, please [contact me](mailto://jan.schneider@uni-siegen.de?subject=AWESOME%20project)!
 
 Best,
 
