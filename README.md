@@ -13,7 +13,7 @@ accepted at ICML 2024,
     <a href="https://icml.cc/virtual/2024/poster/34423">
         <img src="images/badge/ICML-2024-black.svg"/>
     </a>
-    <a href="https://github.com/jp-schneider/awesome/blob/main/images/ICML_poster.pdf" alt="Poster PDF File">
+    <a href="https://raw.githubusercontent.com/jp-schneider/awesome/main/images/ICML_poster.pdf" alt="Poster PDF File">
         <img src="https://img.shields.io/badge/Poster%20PDF-a60a00?logo=adobeacrobatreader" /></a>
 
 </p>
@@ -36,7 +36,7 @@ accepted in the UniReps Workshop at NeurIPS 2023.
         <img src="https://img.shields.io/badge/OpenReview-8c1b13?logo=file" /></a>
     <a href="https://unireps.org/2023/publication/schneider-2023-implicit/" alt="UniReps Link">
         <img src="https://img.shields.io/badge/UniReps-2023-5d8bc4" /></a>
-    <a href="https://github.com/jp-schneider/awesome/blob/main/images/neurips_unireps_poster.pdf" alt="Poster PDF File">
+    <a href="https://raw.githubusercontent.com/jp-schneider/awesome/main/images/neurips_unireps_poster.pdf" alt="Poster PDF File">
         <img src="https://img.shields.io/badge/Poster%20PDF-a60a00?logo=adobeacrobatreader" /></a>
 </p>
 
