@@ -6,14 +6,15 @@ This is the official code repository for:
 accepted at ICML 2024,
 
 <p align="left">
-    <a href="https://openreview.net/pdf?id=IaV6AgrTUp" alt="PDF File">
-        <img src="https://img.shields.io/badge/PDF-a60a00?logo=adobeacrobatreader" /></a>
+    <a href="https://openreview.net/pdf?id=IaV6AgrTUp" alt="Paper PDF File">
+        <img src="https://img.shields.io/badge/Paper%20PDF-a60a00?logo=adobeacrobatreader" /></a>
     <a href="https://openreview.net/forum?id=IaV6AgrTUp" alt="OpenReview">
         <img src="https://img.shields.io/badge/OpenReview-8c1b13?logo=file" /></a>
     <a href="https://icml.cc/virtual/2024/poster/34423">
         <img src="images/badge/ICML-2024-black.svg"/>
     </a>
-
+    <a href="https://github.com/jp-schneider/awesome/blob/main/images/ICML_poster.pdf" alt="Poster PDF File">
+        <img src="https://img.shields.io/badge/Poster%20PDF-a60a00?logo=adobeacrobatreader" /></a>
 
 </p>
 
@@ -30,11 +31,13 @@ accepted in the UniReps Workshop at NeurIPS 2023.
 
 <p align="left">
     <a href="https://openreview.net/pdf?id=LSSiDy7fG1" alt="PDF File">
-        <img src="https://img.shields.io/badge/PDF-a60a00?logo=adobeacrobatreader" /></a>
+        <img src="https://img.shields.io/badge/Paper%20PDF-a60a00?logo=adobeacrobatreader" /></a>
     <a href="https://openreview.net/forum?id=LSSiDy7fG1" alt="OpenReview Link">
         <img src="https://img.shields.io/badge/OpenReview-8c1b13?logo=file" /></a>
     <a href="https://unireps.org/2023/publication/schneider-2023-implicit/" alt="UniReps Link">
         <img src="https://img.shields.io/badge/UniReps-2023-5d8bc4" /></a>
+    <a href="https://github.com/jp-schneider/awesome/blob/main/images/neurips_unireps_poster.pdf" alt="Poster PDF File">
+        <img src="https://img.shields.io/badge/Poster%20PDF-a60a00?logo=adobeacrobatreader" /></a>
 </p>
 
 <div align="center">
@@ -75,16 +78,19 @@ python scripts/run.py --config-path [Config-Path]
 ```
 
 ## Citation
-If you use this code in your research, please cite our paper:
+If you use our concepts or code in your research, please cite our paper:
 
 ```bibtex
-@inproceedings{
-    schneider2024implicit,
-    title={Implicit Representations for Constrained Image Segmentation},
-    author={Schneider, Jan Philipp and Fatima, Mishal and Lukasik, Jovita and Kolb, Andreas and Keuper, Margret and Moeller, Michael},
-    booktitle={41th International Conference on Machine Learning},
-    year={2024},
-    url={https://openreview.net/forum?id=IaV6AgrTUp}
+@InProceedings{schneider-IRCIS-2024,
+    title = {{Implicit} {Representations} for {Constrained} {Image} {Segmentation}},
+    author = {Schneider, Jan Philipp and Fatima, Mishal and Lukasik, Jovita and Kolb, Andreas and Keuper, Margret and Moeller, Michael},
+    booktitle = {Proceedings of the 41st International Conference on Machine Learning},
+    pages = {43765--43790},
+    year = {2024},
+    volume = {235},
+    series = {Proceedings of Machine Learning Research},
+    month = {21--27 Jul},
+    publisher = {PMLR},
 }
 ```
 
