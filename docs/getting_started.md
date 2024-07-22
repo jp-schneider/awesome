@@ -64,9 +64,15 @@ These files were generated on Windows, so there might be some package conflicts 
 
 ### 2. PyTorch Installation
 
-In the dependency configuration, we assume a Cuda version of `11.8` and a fixed pytorch version. You may need/want to adjust these based on your needs.
-To do so we refer to the official [pytorch installation guide](https://pytorch.org/get-started/locally/).
+Based on your environment setup, you need a matching pytorch version which eventually allows gpu support.
+We tested our experiments with pytorch 2.2.2 and cuda 11.8, but they should also run on other newer versions.
+To find the optimal version we refer to the official [pytorch installation guide](https://pytorch.org/get-started/locally/).
 
+If you do not have a GPU, you can install pytorch without cuda support by running:
+
+```bash
+pip install torch torchvision torchaudio
+```
 
 ### 3. Done
 
