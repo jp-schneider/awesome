@@ -31,9 +31,6 @@ pydensecrf = {version = "1.0rc2", optional = true}
 normflows = "^1.7.3"
 h5py = "^3.10.0"
 toml = "^0.10.1"
-torch = {version = "2.2.2+cu118", source = "cuda118"}
-torchvision = {version = "0.17.2+cu118", source = "cuda118"}
-torchaudio = {version = "2.2.2+cu118", source = "cuda118"}
 
 [tool.poetry.group.dev.dependencies]
 ipywidgets = "^8.1.0"
@@ -44,7 +41,7 @@ autopep8 = "^2.0.3"
 tabulate = "^0.9.0"
 colour = "^0.1.5"
 trame = "^3.5.1"
-segment-anything = {git = "https://github.com/facebookresearch/segment-anything.git"}
+segment-anything = {git = "https://github.com/facebookresearch/segment-anything.git", optional=true}
 pre-commit = "^3.7.1"
 
 [tool.poetry.extras]

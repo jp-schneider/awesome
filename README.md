@@ -63,6 +63,15 @@ If you courious how the priors work, we have created short "how-to" notebooks fo
 - [Convexity](notebooks/how_to/convexity.ipynb)
 - [Path-Connectedness](notebooks/how_to/path-connectedness.ipynb)
 
+Which you can also open in Google Colab directly:
+
+<a href="https://colab.research.google.com/github/jp-schneider/awesome/blob/main/notebooks/how_to/convexity.ipynb">
+  <img src="https://img.shields.io/badge/Convexity_in_Colab-FFFFFF?style=flat&logo=google-colab" alt="Convexity In Colab"/>
+</a>
+<a href="https://colab.research.google.com/github/jp-schneider/awesome/blob/main/notebooks/how_to/path-connectedness.ipynb">
+  <img src="https://img.shields.io/badge/Path_Connectedness_in_Colab-FFFFFF?style=flat&logo=google-colab" alt="Path-Connectedness In Colab"/>
+</a>
+
 ### Reproducability
 
 Once the environment is set up, we explain in the [reproduction guide](docs/reproduction_guide.md) how to reproduce the results of the paper.
